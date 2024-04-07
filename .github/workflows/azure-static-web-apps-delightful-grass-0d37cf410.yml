@@ -16,7 +16,7 @@ jobs:
     name: Build and Deploy Job
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4  # Actualiza a la versión más reciente compatible con Node.js 20
 
       - name: Install apt-utils
         run: sudo apt-get update && sudo apt-get install -y apt-utils
@@ -24,7 +24,7 @@ jobs:
       - name: Install Oryx
         run: |
           mkdir -p $HOME/Oryx
-          curl -L https://github.com/microsoft/Oryx/releases/download/<VERSION>/oryx.zip -o $HOME/Oryx/oryx.zip
+          curl -L https://github.com/microsoft/Oryx/releases/download/1.0.0/oryx.zip -o $HOME/Oryx/oryx.zip
           unzip $HOME/Oryx/oryx.zip -d $HOME/Oryx
 
       - name: Build And Deploy
